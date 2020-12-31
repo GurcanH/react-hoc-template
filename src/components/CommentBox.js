@@ -6,20 +6,6 @@ import * as actions from 'actions';
 class CommentBox extends Component {
   state = { comment: '' };
 
-  componentDidMount() {
-    this.shouldNavigateAway();
-  }
-
-  componentDidUpdate() {
-    this.shouldNavigateAway();
-  }
-
-  shouldNavigateAway() {
-    if (!this.props.auth) {
-      console.log('I NEED TO LEAVE!!!');
-    }
-  }
-
   handleCange = event => {
     this.setState({ comment: event.target.value });
   };
@@ -48,8 +34,4 @@ class CommentBox extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { auth: state.auth };
-};
-
-export default connect(mapStateToProps, actions)(CommentBox);
+export default connect(null, actions)(CommentBox);
